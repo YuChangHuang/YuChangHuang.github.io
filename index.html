@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="YuChang Huang — Front-End & Full-Stack IT student at Inholland University, looking for an internship. Portfolio of web development projects.">
+  <title>YuChang Huang — Front-End & Full-Stack Developer</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --surface: #181b22;
+      --surface-2: #1f232c;
+      --text: #e8eaf0;
+      --muted: #9aa3b2;
+      --accent: #4f8cff;
+      --accent-soft: rgba(79, 140, 255, 0.12);
+      --border: #2a2f3a;
+      --radius: 14px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+    }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(15, 17, 21, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; justify-content: space-between; align-items: center;
+      height: 60px;
+    }
+    .nav-logo { font-weight: 700; font-size: 1.05rem; color: var(--text); text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.95rem; transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+
+    /* Hero */
+    header { padding: 96px 0 72px; }
+    .kicker {
+      display: inline-block;
+      background: var(--accent-soft); color: var(--accent);
+      border: 1px solid rgba(79,140,255,.3);
+      padding: 4px 14px; border-radius: 999px;
+      font-size: 0.85rem; font-weight: 600;
+      margin-bottom: 20px;
+    }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.15; letter-spacing: -0.02em; }
+    h1 .accent { color: var(--accent); }
+    .tagline { margin-top: 18px; max-width: 620px; color: var(--muted); font-size: 1.1rem; }
+    .hero-actions { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 11px 22px; border-radius: 10px;
+      text-decoration: none; font-weight: 600; font-size: 0.95rem;
+      transition: transform .15s, background .2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-ghost { border: 1px solid var(--border); color: var(--text); }
+
+    /* Sections */
+    section { padding: 64px 0; border-top: 1px solid var(--border); }
+    h2 { font-size: 1.6rem; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .section-sub { color: var(--muted); margin-bottom: 36px; }
+
+    /* Projects */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 26px;
+      display: flex; flex-direction: column;
+      transition: transform .15s, border-color .2s;
+    }
+    .card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 0.95rem; flex: 1; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+    .tag {
+      background: var(--surface-2); border: 1px solid var(--border);
+      color: var(--muted); font-size: 0.78rem; padding: 3px 10px; border-radius: 999px;
+    }
+    .card-links { display: flex; gap: 16px; }
+    .card-links a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    .card-links a:hover { text-decoration: underline; }
+    .badge-soon { color: var(--muted); font-size: 0.85rem; font-style: italic; }
+
+    /* Skills */
+    .skill-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .skill-group { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 26px; }
+    .skill-group h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 14px; }
+
+    /* Contact */
+    .contact-box {
+      background: linear-gradient(135deg, var(--surface), var(--surface-2));
+      border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 44px; text-align: center;
+    }
+    .contact-box p { color: var(--muted); max-width: 520px; margin: 10px auto 26px; }
+
+    footer { padding: 36px 0; text-align: center; color: var(--muted); font-size: 0.85rem; }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      header { padding: 64px 0 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <a class="nav-logo" href="#">YuChang<span>.dev</span></a>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://github.com/YuChangHuang" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="container">
+    <span class="kicker">Open to internships · Amsterdam, NL</span>
+    <h1>Hi, I'm <span class="accent">YuChang Huang</span>.<br>I build web applications.</h1>
+    <p class="tagline">
+      IT student at Inholland University of Applied Sciences, focused on front-end and
+      full-stack development — responsive interfaces, MVC architecture, and database-backed
+      applications that people can actually use.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="mailto:yuchanghuang112@gmail.com">Get in touch</a>
+      <a class="btn btn-ghost" href="#projects">View projects</a>
+    </div>
+  </header>
+
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <p class="section-sub">Coursework turned into runnable, documented projects.</p>
+      <div class="grid">
+
+        <div class="card">
+          <h3>Haarlem Festival Platform</h3>
+          <p>Full-stack festival website with a public site and an internal CMS — ticketing with QR codes, Stripe payments, reservations, and order management. Team project; I worked on payment flows and CMS features.</p>
+          <div class="tags">
+            <span class="tag">PHP 8.4</span><span class="tag">MySQL</span><span class="tag">Nginx</span><span class="tag">Docker</span><span class="tag">Stripe</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/MrGablo/HaarlemFestivalPart2" target="_blank" rel="noopener">Code →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>CycleWay.nl</h3>
+          <p>A responsive multi-page guide that teaches newcomers how to cycle safely in the Netherlands — bike basics, traffic rules, safety tips, and scenic routes. Hand-written HTML and CSS, no frameworks.</p>
+          <div class="tags">
+            <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Responsive</span><span class="tag">WCAG 2.1</span><span class="tag">Figma</span>
+          </div>
+          <div class="card-links">
+            <a href="https://yuchanghuang.github.io/Web-Markup-Final/" target="_blank" rel="noopener">Live demo →</a>
+            <a href="https://github.com/YuChangHuang/Web-Markup-Final" target="_blank" rel="noopener">Code →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Restaurant Ordering System</h3>
+          <p>Restaurant management system with direct pay and split-payment flows, built on MVC architecture with a relational database designed from the ERD up. Team project.</p>
+          <div class="tags">
+            <span class="tag">ASP.NET MVC</span><span class="tag">C#</span><span class="tag">SQL Server</span>
+          </div>
+          <div class="card-links">
+            <span class="badge-soon">Repo coming soon</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Incident Management System</h3>
+          <p>NoSQL incident tracking system for employees, assets, and operational records, with containerized deployment for reproducible local setup.</p>
+          <div class="tags">
+            <span class="tag">MongoDB</span><span class="tag">Docker</span><span class="tag">NoSQL</span>
+          </div>
+          <div class="card-links">
+            <span class="badge-soon">Repo coming soon</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2>Skills</h2>
+      <p class="section-sub">Tools I use to design, build, and ship.</p>
+      <div class="skill-groups">
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <div class="tags">
+            <span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">Java</span><span class="tag">C#</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">SQL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Frameworks &amp; Databases</h3>
+          <div class="tags">
+            <span class="tag">ASP.NET MVC</span><span class="tag">MySQL</span><span class="tag">SQL Server</span><span class="tag">MongoDB</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Tools</h3>
+          <div class="tags">
+            <span class="tag">Git &amp; GitHub</span><span class="tag">Docker</span><span class="tag">Figma</span><span class="tag">VS Code</span><span class="tag">Visual Studio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <h2>Looking for an intern?</h2>
+        <p>I'm available for front-end or full-stack internships in the Netherlands. If you think I'd be a good fit for your team, I'd love to hear from you.</p>
+        <a class="btn btn-primary" href="mailto:yuchanghuang112@gmail.com">yuchanghuang112@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 YuChang Huang · Built with plain HTML &amp; CSS ·
+      <a href="https://github.com/YuChangHuang/YuChangHuang.github.io" style="color: var(--muted);">Source</a>
+    </div>
+  </footer>
+
+</body>
+</html>
