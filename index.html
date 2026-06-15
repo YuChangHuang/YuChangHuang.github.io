@@ -45,7 +45,7 @@
     .nav-links a:hover { color: var(--text); }
 
     /* Hero */
-    header { padding: 96px 0 72px; }
+    header { padding: 96px 0 72px; text-align: center; }
     .kicker {
       display: inline-block;
       background: var(--accent-soft); color: var(--accent);
@@ -56,8 +56,9 @@
     }
     h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.15; letter-spacing: -0.02em; }
     h1 .accent { color: var(--accent); }
-    .tagline { margin-top: 18px; max-width: 620px; color: var(--muted); font-size: 1.1rem; }
-    .hero-actions { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; }
+    .tagline { margin: 18px auto 0; max-width: 620px; color: var(--muted); font-size: 1.1rem; }
+    .hero-actions { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+    .contact-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
     .btn {
       display: inline-block; padding: 11px 22px; border-radius: 10px;
       text-decoration: none; font-weight: 600; font-size: 0.95rem;
@@ -123,6 +124,7 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="https://www.linkedin.com/in/yuchang-huang-abba1a299/" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="https://github.com/YuChangHuang" target="_blank" rel="noopener">GitHub</a></li>
       </ul>
     </div>
@@ -137,8 +139,9 @@
       applications that people can actually use.
     </p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="mailto:yuchanghuang112@gmail.com">Get in touch</a>
+      <a class="btn btn-primary" href="https://www.linkedin.com/in/yuchang-huang-abba1a299/" target="_blank" rel="noopener">Connect on LinkedIn</a>
       <a class="btn btn-ghost" href="#projects">View projects</a>
+      <a class="btn btn-ghost" href="mailto:yuchanghuang112@gmail.com">Email me</a>
     </div>
   </header>
 
@@ -250,8 +253,11 @@
     <div class="container">
       <div class="contact-box">
         <h2>Looking for an intern?</h2>
-        <p>I'm available for front-end or full-stack internships in the Netherlands. If you think I'd be a good fit for your team, I'd love to hear from you.</p>
-        <a class="btn btn-primary" href="mailto:yuchanghuang112@gmail.com">yuchanghuang112@gmail.com</a>
+        <p>I'm available for front-end or full-stack internships in the Netherlands. The easiest way to reach me is on LinkedIn — or drop me an email.</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/yuchang-huang-abba1a299/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+          <a class="btn btn-ghost" href="mailto:yuchanghuang112@gmail.com">yuchanghuang112@gmail.com</a>
+        </div>
       </div>
     </div>
   </section>
