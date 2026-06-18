@@ -3,292 +3,389 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="YuChang Huang — Front-End & Full-Stack IT student at Inholland University, looking for an internship. Portfolio of web development projects.">
+  <meta name="description" content="YuChang Huang — Front-End & Full-Stack IT student at Inholland University, looking for an internship. Portfolio of runnable web development projects.">
   <title>YuChang Huang — Front-End & Full-Stack Developer</title>
   <style>
     :root {
-      --bg: #0f1115;
-      --surface: #181b22;
-      --surface-2: #1f232c;
-      --text: #e8eaf0;
-      --muted: #9aa3b2;
-      --accent: #4f8cff;
-      --accent-soft: rgba(79, 140, 255, 0.12);
-      --border: #2a2f3a;
-      --radius: 14px;
+      --bg: #0a0b0d;
+      --panel: #101216;
+      --panel-2: #14161b;
+      --row: #0e1014;
+      --text: #f2f4f8;
+      --muted: #8b93a1;
+      --faint: #5b6270;
+      --border: #1d2027;
+      --border-soft: #181b21;
+      --light: #f4f5f7;
+      --red: #ef4444;
+      --amber: #f59e0b;
+      --blue: #4f8cff;
+      --green: #22c55e;
+      --gray: #6b7280;
+      --radius: 12px;
+      --mono: ui-monospace, "SFMono-Regular", "JetBrains Mono", "Menlo", "Consolas", monospace;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: var(--sans);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
-    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+    a { color: inherit; }
 
-    /* Nav */
+    /* ---------- Nav ---------- */
     nav {
-      position: sticky; top: 0; z-index: 10;
-      background: rgba(15, 17, 21, 0.85);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(10, 11, 13, 0.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-soft);
     }
-    .nav-inner {
-      display: flex; justify-content: space-between; align-items: center;
-      height: 60px;
-    }
-    .nav-logo { font-weight: 700; font-size: 1.05rem; color: var(--text); text-decoration: none; }
-    .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 24px; list-style: none; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.95rem; transition: color .2s; }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 58px; }
+    .brand { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+    .brand-mark { display: inline-flex; gap: 2px; align-items: flex-end; height: 15px; }
+    .brand-mark i { width: 3px; background: var(--text); border-radius: 1px; display: block; }
+    .brand-mark i:nth-child(1){ height: 7px; }
+    .brand-mark i:nth-child(2){ height: 15px; }
+    .brand-mark i:nth-child(3){ height: 10px; }
+    .brand-name { font-family: var(--mono); font-weight: 600; letter-spacing: 0.18em; font-size: 0.82rem; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 26px; list-style: none; align-items: center; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color .15s; }
     .nav-links a:hover { color: var(--text); }
-
-    /* Hero */
-    header { padding: 96px 0 72px; text-align: center; }
-    .kicker {
-      display: inline-block;
-      background: var(--accent-soft); color: var(--accent);
-      border: 1px solid rgba(79,140,255,.3);
-      padding: 4px 14px; border-radius: 999px;
-      font-size: 0.85rem; font-weight: 600;
-      margin-bottom: 20px;
+    .nav-cta {
+      font-family: var(--mono); font-size: 0.78rem; letter-spacing: .03em;
+      border: 1px solid var(--border); color: var(--text) !important;
+      padding: 7px 14px; border-radius: 8px; transition: border-color .15s, background .15s;
     }
-    h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.15; letter-spacing: -0.02em; }
-    h1 .accent { color: var(--accent); }
-    .tagline { margin: 18px auto 0; max-width: 620px; color: var(--muted); font-size: 1.1rem; }
-    .hero-actions { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
-    .contact-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .nav-cta:hover { border-color: var(--faint); background: var(--panel); }
+
+    /* ---------- Hero ---------- */
+    header { position: relative; overflow: hidden; border-bottom: 1px solid var(--border-soft); }
+    .hero { position: relative; z-index: 2; padding: 104px 0 96px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--mono); font-size: 0.74rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 26px;
+    }
+    .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px rgba(34,197,94,.18); }
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      line-height: 1.04; letter-spacing: -0.03em; font-weight: 800; max-width: 14ch;
+    }
+    h1 .dim { color: var(--muted); }
+    .tagline { margin: 24px 0 0; max-width: 540px; color: var(--muted); font-size: 1.06rem; }
+    .hero-actions { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
     .btn {
-      display: inline-block; padding: 11px 22px; border-radius: 10px;
-      text-decoration: none; font-weight: 600; font-size: 0.95rem;
-      transition: transform .15s, background .2s;
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 11px 20px; border-radius: 9px; text-decoration: none;
+      font-weight: 600; font-size: 0.92rem; transition: transform .14s, background .15s, border-color .15s;
     }
     .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary { background: var(--light); color: #0a0b0d; }
+    .btn-primary:hover { background: #ffffff; }
     .btn-ghost { border: 1px solid var(--border); color: var(--text); }
+    .btn-ghost:hover { border-color: var(--faint); background: var(--panel); }
+    .btn .arrow { transition: transform .15s; }
+    .btn:hover .arrow { transform: translateX(3px); }
 
-    /* Sections */
-    section { padding: 64px 0; border-top: 1px solid var(--border); }
-    h2 { font-size: 1.6rem; margin-bottom: 8px; letter-spacing: -0.01em; }
-    .section-sub { color: var(--muted); margin-bottom: 36px; }
+    .blueprint { position: absolute; top: -40px; right: -80px; z-index: 1; opacity: .55; pointer-events: none; }
+    @media (max-width: 880px){ .blueprint { display: none; } }
 
-    /* Projects */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 26px;
-      display: flex; flex-direction: column;
-      transition: transform .15s, border-color .2s;
+    /* ---------- Section ---------- */
+    section { padding: 78px 0; border-top: 1px solid var(--border-soft); }
+    .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 8px; flex-wrap: wrap; }
+    .sec-tag { font-family: var(--mono); font-size: 0.72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+    h2 { font-size: 1.7rem; letter-spacing: -0.02em; font-weight: 700; }
+    .section-sub { color: var(--muted); margin-bottom: 34px; font-size: 0.98rem; }
+
+    /* ---------- Tracker (projects) ---------- */
+    .tracker { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--panel); }
+    .tracker-head {
+      display: grid; grid-template-columns: 90px 1fr 150px;
+      gap: 16px; padding: 12px 22px; border-bottom: 1px solid var(--border);
+      font-family: var(--mono); font-size: 0.68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--faint);
+      background: var(--panel-2);
     }
-    .card:hover { transform: translateY(-3px); border-color: var(--accent); }
-    .card h3 { font-size: 1.15rem; margin-bottom: 8px; }
-    .card p { color: var(--muted); font-size: 0.95rem; flex: 1; }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+    .row {
+      display: grid; grid-template-columns: 90px 1fr 150px; gap: 16px;
+      padding: 22px; border-bottom: 1px solid var(--border-soft); transition: background .15s;
+    }
+    .row:last-child { border-bottom: none; }
+    .row:hover { background: var(--panel-2); }
+    .row-id { font-family: var(--mono); font-size: 0.82rem; color: var(--muted); display: flex; align-items: flex-start; gap: 9px; }
+    .dot { width: 9px; height: 9px; border-radius: 3px; margin-top: 6px; flex: none; }
+    .d-green { background: var(--green); }
+    .d-blue { background: var(--blue); }
+    .d-amber { background: var(--amber); }
+    .d-gray { background: var(--gray); }
+    .row-main h3 { font-size: 1.08rem; font-weight: 650; letter-spacing: -0.01em; }
+    .row-main p { color: var(--muted); font-size: 0.93rem; margin-top: 6px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
     .tag {
-      background: var(--surface-2); border: 1px solid var(--border);
-      color: var(--muted); font-size: 0.78rem; padding: 3px 10px; border-radius: 999px;
+      font-family: var(--mono); font-size: 0.72rem; color: var(--muted);
+      border: 1px solid var(--border); background: var(--row);
+      padding: 3px 9px; border-radius: 6px;
     }
-    .card-links { display: flex; gap: 16px; }
-    .card-links a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
-    .card-links a:hover { text-decoration: underline; }
-    .badge-soon { color: var(--muted); font-size: 0.85rem; font-style: italic; }
+    .links { display: flex; gap: 16px; margin-top: 14px; }
+    .links a { color: var(--blue); text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+    .links a:hover { text-decoration: underline; }
+    .row-status { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+    .badge {
+      font-family: var(--mono); font-size: 0.72rem; letter-spacing: .02em;
+      display: inline-flex; align-items: center; gap: 7px;
+      border: 1px solid var(--border); border-radius: 999px; padding: 4px 11px; color: var(--muted);
+    }
+    .badge .bdot { width: 7px; height: 7px; border-radius: 50%; }
+    .role { font-family: var(--mono); font-size: 0.7rem; color: var(--faint); letter-spacing: .03em; }
 
-    /* Skills */
-    .skill-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-    .skill-group { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 26px; }
-    .skill-group h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 14px; }
+    /* ---------- Skills ---------- */
+    .skill-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .skill-group { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
+    .skill-group h3 { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--faint); margin-bottom: 16px; }
 
-    /* Contact */
+    /* ---------- Contact ---------- */
     .contact-box {
-      background: linear-gradient(135deg, var(--surface), var(--surface-2));
-      border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 44px; text-align: center;
+      background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 48px 40px; text-align: center; position: relative; overflow: hidden;
     }
-    .contact-box p { color: var(--muted); max-width: 520px; margin: 10px auto 26px; }
+    .contact-box h2 { font-size: 1.9rem; margin-top: 4px; }
+    .contact-box p { color: var(--muted); max-width: 500px; margin: 12px auto 28px; }
+    .contact-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
-    footer { padding: 36px 0; text-align: center; color: var(--muted); font-size: 0.85rem; }
+    footer { padding: 40px 0; border-top: 1px solid var(--border-soft); color: var(--faint); font-size: 0.82rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .footer-inner a { color: var(--muted); text-decoration: none; }
+    .footer-inner a:hover { color: var(--text); }
+    .footer-mono { font-family: var(--mono); }
 
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      header { padding: 64px 0 48px; }
+    @media (max-width: 720px) {
+      .nav-links li.hide-sm { display: none; }
+      .tracker-head { display: none; }
+      .row { grid-template-columns: 1fr; gap: 10px; }
+      .row-status { flex-direction: row; align-items: center; }
+      .hero { padding: 80px 0 64px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
     <div class="container nav-inner">
-      <a class="nav-logo" href="#">YuChang<span>.dev</span></a>
+      <a class="brand" href="#">
+        <span class="brand-mark"><i></i><i></i><i></i></span>
+        <span class="brand-name">YuChang</span>
+      </a>
       <ul class="nav-links">
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="https://www.linkedin.com/in/yuchang-huang-abba1a299/" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://github.com/YuChangHuang" target="_blank" rel="noopener">GitHub</a></li>
+        <li class="hide-sm"><a href="#projects">Projects</a></li>
+        <li class="hide-sm"><a href="#skills">Skills</a></li>
+        <li class="hide-sm"><a href="https://www.figma.com/design/8ciwfvsGC96m4i0i1cxXqA/Figma-Portfolio?node-id=0-1" target="_blank" rel="noopener">Figma</a></li>
+        <li class="hide-sm"><a href="https://github.com/YuChangHuang" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a class="nav-cta" href="#contact">Get in touch</a></li>
       </ul>
     </div>
   </nav>
 
-  <header class="container">
-    <span class="kicker">Open to internships · Amsterdam, NL</span>
-    <h1>Hi, I'm <span class="accent">YuChang Huang</span>.<br>I build web applications.</h1>
-    <p class="tagline">
-      IT student at Inholland University of Applied Sciences, focused on front-end and
-      full-stack development — responsive interfaces, MVC architecture, and database-backed
-      applications that people can actually use.
-    </p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="https://www.linkedin.com/in/yuchang-huang-abba1a299/" target="_blank" rel="noopener">Connect on LinkedIn</a>
-      <a class="btn btn-ghost" href="#projects">View projects</a>
-      <a class="btn btn-ghost" href="mailto:yuchanghuang112@gmail.com">Email me</a>
+  <!-- HERO -->
+  <header>
+    <svg class="blueprint" width="620" height="440" viewBox="0 0 620 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#262a33" stroke-width="1">
+        <g transform="rotate(-18 300 150)">
+          <rect x="120" y="60" width="240" height="150" rx="6"/>
+          <line x1="120" y1="92" x2="360" y2="92"/>
+          <line x1="150" y1="120" x2="330" y2="120"/><line x1="150" y1="142" x2="300" y2="142"/>
+          <line x1="150" y1="164" x2="330" y2="164"/><line x1="150" y1="186" x2="280" y2="186"/>
+        </g>
+        <g transform="rotate(-18 430 280)">
+          <rect x="300" y="200" width="240" height="150" rx="6"/>
+          <line x1="300" y1="232" x2="540" y2="232"/>
+          <line x1="330" y1="260" x2="510" y2="260"/><line x1="330" y1="282" x2="480" y2="282"/>
+          <line x1="330" y1="304" x2="510" y2="304"/>
+        </g>
+      </g>
+    </svg>
+
+    <div class="container hero">
+      <span class="eyebrow"><span class="pulse"></span> Open to internships · Amsterdam, NL</span>
+      <h1>YuChang <span class="dim">Huang</span></h1>
+      <p class="tagline">
+        Front-end &amp; full-stack IT student at Inholland University. I turn coursework
+        into runnable, documented projects — responsive interfaces, MVC architecture,
+        and database-backed apps that anyone can clone and start with one command.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">View projects <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="https://www.figma.com/design/8ciwfvsGC96m4i0i1cxXqA/Figma-Portfolio?node-id=0-1" target="_blank" rel="noopener">Figma portfolio</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/yuchang-huang-abba1a299/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
     </div>
   </header>
 
+  <!-- PROJECTS -->
   <section id="projects">
     <div class="container">
-      <h2>Projects</h2>
-      <p class="section-sub">Coursework turned into runnable, documented projects.</p>
-      <div class="grid">
+      <div class="sec-head">
+        <h2>Projects</h2>
+        <span class="sec-tag">8 tracked · runnable locally</span>
+      </div>
+      <p class="section-sub">Coursework rebuilt to run on a single machine — no cloud accounts required.</p>
 
-        <div class="card">
-          <h3>Banking Application</h3>
-          <p>Full-stack retail-banking app: accounts and IBANs, money transfers, ATM deposit/withdraw, transaction history, and JWT authentication with customer/employee roles. Spring Boot REST API plus a Vue 3 SPA, tested with JUnit and Cucumber. Backend runs with one command on an embedded database.</p>
-          <div class="tags">
-            <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">JWT</span><span class="tag">H2</span><span class="tag">Vue 3</span><span class="tag">Cucumber</span>
-          </div>
-          <div class="card-links">
-            <a href="https://github.com/YuChangHuang/BankingApplication" target="_blank" rel="noopener">Backend →</a>
-            <a href="https://github.com/YuChangHuang/BankingApplication-frontend" target="_blank" rel="noopener">Frontend →</a>
-          </div>
+      <div class="tracker">
+        <div class="tracker-head">
+          <span>ID</span><span>Project</span><span>Status</span>
         </div>
 
-        <div class="card">
-          <h3>Ride Lab</h3>
-          <p>Road-cycling catalogue and personal-setup app: browse bikes, compare geometry, estimate tyre pressure, save your setups, and upgrade to premium via Stripe. Vue 3 single-page app on a PHP JSON API. Runs locally with one Docker command.</p>
-          <div class="tags">
-            <span class="tag">Vue 3</span><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">JWT</span><span class="tag">Stripe</span><span class="tag">Docker</span>
+        <div class="row">
+          <div class="row-id"><span class="dot d-green"></span>BNK-01</div>
+          <div class="row-main">
+            <h3>Banking Application</h3>
+            <p>Full-stack retail-banking app: accounts and IBANs, money transfers, ATM deposit/withdraw, transaction history, and JWT auth with customer/employee roles. Spring Boot REST API plus a Vue 3 SPA, tested with JUnit and Cucumber. Backend runs with one command on an embedded H2 database.</p>
+            <div class="tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">JWT</span><span class="tag">H2</span><span class="tag">Vue 3</span><span class="tag">Cucumber</span></div>
+            <div class="links">
+              <a href="https://github.com/YuChangHuang/BankingApplication" target="_blank" rel="noopener">Backend →</a>
+              <a href="https://github.com/YuChangHuang/BankingApplication-frontend" target="_blank" rel="noopener">Frontend →</a>
+            </div>
           </div>
-          <div class="card-links">
-            <a href="https://github.com/YuChangHuang/Web-Development2-Final-assignment" target="_blank" rel="noopener">Code →</a>
-          </div>
+          <div class="row-status"><span class="badge"><span class="bdot d-green"></span>Runs locally</span><span class="role">Solo</span></div>
         </div>
 
-        <div class="card">
-          <h3>Haarlem Festival Platform</h3>
-          <p>Full-stack festival website with a public site and an internal CMS — ticketing with QR codes, Stripe payments, reservations, and order management. Team project; I worked on payment flows and CMS features.</p>
-          <div class="tags">
-            <span class="tag">PHP 8.4</span><span class="tag">MySQL</span><span class="tag">Nginx</span><span class="tag">Docker</span><span class="tag">Stripe</span>
+        <div class="row">
+          <div class="row-id"><span class="dot d-green"></span>RID-02</div>
+          <div class="row-main">
+            <h3>Ride Lab</h3>
+            <p>Road-cycling catalogue and personal-setup app: browse bikes, compare geometry, estimate tyre pressure, save your setups, and upgrade to premium via Stripe. Vue 3 single-page app on a PHP JSON API. Runs locally with one Docker command.</p>
+            <div class="tags"><span class="tag">Vue 3</span><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">JWT</span><span class="tag">Stripe</span><span class="tag">Docker</span></div>
+            <div class="links"><a href="https://github.com/YuChangHuang/Web-Development2-Final-assignment" target="_blank" rel="noopener">Code →</a></div>
           </div>
-          <div class="card-links">
-            <a href="https://github.com/YuChangHuang/HaarlemFestivalPart2" target="_blank" rel="noopener">Code →</a>
-          </div>
+          <div class="row-status"><span class="badge"><span class="bdot d-green"></span>Runs locally</span><span class="role">Solo</span></div>
         </div>
 
-        <div class="card">
-          <h3>CycleWay.nl</h3>
-          <p>A responsive multi-page guide that teaches newcomers how to cycle safely in the Netherlands — bike basics, traffic rules, safety tips, and scenic routes. Hand-written HTML and CSS, no frameworks.</p>
-          <div class="tags">
-            <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Responsive</span><span class="tag">WCAG 2.1</span><span class="tag">Figma</span>
+        <div class="row">
+          <div class="row-id"><span class="dot d-blue"></span>HAR-03</div>
+          <div class="row-main">
+            <h3>Haarlem Festival Platform</h3>
+            <p>Full-stack festival website with a public site and an internal CMS — ticketing with QR codes, Stripe payments, reservations, and order management. Team project; I worked on payment flows and CMS features.</p>
+            <div class="tags"><span class="tag">PHP 8.4</span><span class="tag">MySQL</span><span class="tag">Nginx</span><span class="tag">Docker</span><span class="tag">Stripe</span></div>
+            <div class="links"><a href="https://github.com/YuChangHuang/HaarlemFestivalPart2" target="_blank" rel="noopener">Code →</a></div>
           </div>
-          <div class="card-links">
-            <a href="https://yuchanghuang.github.io/Web-Markup-Final/" target="_blank" rel="noopener">Live demo →</a>
-            <a href="https://github.com/YuChangHuang/Web-Markup-Final" target="_blank" rel="noopener">Code →</a>
-          </div>
+          <div class="row-status"><span class="badge"><span class="bdot d-blue"></span>Team</span><span class="role">Payments · CMS</span></div>
         </div>
 
-        <div class="card">
-          <h3>Restaurant Ordering System</h3>
-          <p>Restaurant POS / ordering system: take orders per table, live kitchen &amp; bar queues, and billing with split payments, tips and VAT. Built on MVC over a relational database; runs locally with one Docker command. Team project — I built the table ↔ order ↔ order-item data layer.</p>
-          <div class="tags">
-            <span class="tag">ASP.NET Core MVC</span><span class="tag">C#</span><span class="tag">SQL Server</span><span class="tag">Docker</span>
+        <div class="row">
+          <div class="row-id"><span class="dot d-green"></span>CYC-04</div>
+          <div class="row-main">
+            <h3>CycleWay.nl</h3>
+            <p>A responsive multi-page guide that teaches newcomers how to cycle safely in the Netherlands — bike basics, traffic rules, safety tips, and scenic routes. Hand-written HTML and CSS, no frameworks. Designed in Figma first.</p>
+            <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Responsive</span><span class="tag">WCAG 2.1</span><span class="tag">Figma</span></div>
+            <div class="links">
+              <a href="https://yuchanghuang.github.io/Web-Markup-Final/" target="_blank" rel="noopener">Live demo →</a>
+              <a href="https://github.com/YuChangHuang/Web-Markup-Final" target="_blank" rel="noopener">Code →</a>
+            </div>
           </div>
-          <div class="card-links">
-            <a href="https://github.com/YuChangHuang/Ordering-system-Chapeau-group4" target="_blank" rel="noopener">Code →</a>
-          </div>
+          <div class="row-status"><span class="badge"><span class="bdot d-green"></span>Live</span><span class="role">Solo</span></div>
         </div>
 
-        <div class="card">
-          <h3>Incident Management System</h3>
-          <p>IT service-desk ticketing app (the "Garden Group" case): create and hand over tickets, manage employees, a supervisor dashboard with statistics, and ticket archiving. Runs locally with one Docker command. Team project — I built the password-reset workflow (token + email).</p>
-          <div class="tags">
-            <span class="tag">ASP.NET Core MVC</span><span class="tag">C#</span><span class="tag">MongoDB</span><span class="tag">Docker</span>
+        <div class="row">
+          <div class="row-id"><span class="dot d-blue"></span>ORD-05</div>
+          <div class="row-main">
+            <h3>Restaurant Ordering System</h3>
+            <p>Restaurant POS / ordering system: take orders per table, live kitchen &amp; bar queues, and billing with split payments, tips and VAT. Built on MVC over a relational database; runs locally with one Docker command. Team project — I built the table ↔ order ↔ order-item data layer.</p>
+            <div class="tags"><span class="tag">ASP.NET Core MVC</span><span class="tag">C#</span><span class="tag">SQL Server</span><span class="tag">Docker</span></div>
+            <div class="links"><a href="https://github.com/YuChangHuang/Ordering-system-Chapeau-group4" target="_blank" rel="noopener">Code →</a></div>
           </div>
-          <div class="card-links">
-            <a href="https://github.com/YuChangHuang/GardenGroup-Incident-System" target="_blank" rel="noopener">Code →</a>
-          </div>
+          <div class="row-status"><span class="badge"><span class="bdot d-blue"></span>Team</span><span class="role">Data layer</span></div>
         </div>
 
-        <div class="card">
-          <h3>Someren — Student Housing</h3>
-          <p>Management app for a student-housing complex: students, lecturers, rooms, social activities with participants and supervisors, and a drinks bar. Runs locally with one Docker command. Team project — I built lecturers CRUD and the activities &amp; supervisor management.</p>
-          <div class="tags">
-            <span class="tag">ASP.NET Core MVC</span><span class="tag">C#</span><span class="tag">SQL Server</span><span class="tag">Docker</span>
+        <div class="row">
+          <div class="row-id"><span class="dot d-blue"></span>INC-06</div>
+          <div class="row-main">
+            <h3>Incident Management System</h3>
+            <p>IT service-desk ticketing app (the "Garden Group" case): create and hand over tickets, manage employees, a supervisor dashboard with statistics, and ticket archiving. Runs locally with one Docker command. Team project — I built the password-reset workflow (token + email).</p>
+            <div class="tags"><span class="tag">ASP.NET Core MVC</span><span class="tag">C#</span><span class="tag">MongoDB</span><span class="tag">Docker</span></div>
+            <div class="links"><a href="https://github.com/YuChangHuang/GardenGroup-Incident-System" target="_blank" rel="noopener">Code →</a></div>
           </div>
-          <div class="card-links">
-            <a href="https://github.com/YuChangHuang/Someren" target="_blank" rel="noopener">Code →</a>
-          </div>
+          <div class="row-status"><span class="badge"><span class="bdot d-blue"></span>Team</span><span class="role">Auth flow</span></div>
         </div>
 
-        <div class="card">
-          <h3>Java Quiz Application</h3>
-          <p>Desktop quiz game: loads quizzes from JSON, times each question, scores the player and saves results. Object-oriented design (question hierarchy + factory) with unit tests. Individual project, built end to end.</p>
-          <div class="tags">
-            <span class="tag">Java 21</span><span class="tag">JavaFX</span><span class="tag">Maven</span><span class="tag">JUnit</span>
+        <div class="row">
+          <div class="row-id"><span class="dot d-blue"></span>SOM-07</div>
+          <div class="row-main">
+            <h3>Someren — Student Housing</h3>
+            <p>Management app for a student-housing complex: students, lecturers, rooms, social activities with participants and supervisors, and a drinks bar. Runs locally with one Docker command. Team project — I built lecturers CRUD and the activities &amp; supervisor management.</p>
+            <div class="tags"><span class="tag">ASP.NET Core MVC</span><span class="tag">C#</span><span class="tag">SQL Server</span><span class="tag">Docker</span></div>
+            <div class="links"><a href="https://github.com/YuChangHuang/Someren" target="_blank" rel="noopener">Code →</a></div>
           </div>
-          <div class="card-links">
-            <a href="https://github.com/YuChangHuang/JavaEndAssignment" target="_blank" rel="noopener">Code →</a>
+          <div class="row-status"><span class="badge"><span class="bdot d-blue"></span>Team</span><span class="role">CRUD · Activities</span></div>
+        </div>
+
+        <div class="row">
+          <div class="row-id"><span class="dot d-gray"></span>JVA-08</div>
+          <div class="row-main">
+            <h3>Java Quiz Application</h3>
+            <p>Desktop quiz game: loads quizzes from JSON, times each question, scores the player and saves results. Object-oriented design (question hierarchy + factory) with unit tests. Individual project, built end to end.</p>
+            <div class="tags"><span class="tag">Java 21</span><span class="tag">JavaFX</span><span class="tag">Maven</span><span class="tag">JUnit</span></div>
+            <div class="links"><a href="https://github.com/YuChangHuang/JavaEndAssignment" target="_blank" rel="noopener">Code →</a></div>
           </div>
+          <div class="row-status"><span class="badge"><span class="bdot d-gray"></span>Desktop</span><span class="role">Solo</span></div>
         </div>
 
       </div>
     </div>
   </section>
 
+  <!-- SKILLS -->
   <section id="skills">
     <div class="container">
-      <h2>Skills</h2>
+      <div class="sec-head">
+        <h2>Skills</h2>
+        <span class="sec-tag">stack</span>
+      </div>
       <p class="section-sub">Tools I use to design, build, and ship.</p>
       <div class="skill-groups">
         <div class="skill-group">
           <h3>Languages</h3>
-          <div class="tags">
-            <span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">Java</span><span class="tag">C#</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">SQL</span>
-          </div>
+          <div class="tags"><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">Java</span><span class="tag">C#</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">SQL</span></div>
         </div>
         <div class="skill-group">
           <h3>Frameworks &amp; Databases</h3>
-          <div class="tags">
-            <span class="tag">ASP.NET Core MVC</span><span class="tag">Spring Boot</span><span class="tag">Vue.js</span><span class="tag">MySQL</span><span class="tag">SQL Server</span><span class="tag">MongoDB</span>
-          </div>
+          <div class="tags"><span class="tag">ASP.NET Core MVC</span><span class="tag">Spring Boot</span><span class="tag">Vue.js</span><span class="tag">MySQL</span><span class="tag">SQL Server</span><span class="tag">MongoDB</span></div>
         </div>
         <div class="skill-group">
-          <h3>Tools</h3>
-          <div class="tags">
-            <span class="tag">Git &amp; GitHub</span><span class="tag">Docker</span><span class="tag">Figma</span><span class="tag">VS Code</span><span class="tag">Visual Studio</span>
-          </div>
+          <h3>Tools &amp; Design</h3>
+          <div class="tags"><span class="tag">Git &amp; GitHub</span><span class="tag">Docker</span><span class="tag">Figma</span><span class="tag">VS Code</span><span class="tag">Visual Studio</span></div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
       <div class="contact-box">
+        <span class="eyebrow"><span class="pulse"></span> Available · internships</span>
         <h2>Looking for an intern?</h2>
         <p>I'm available for front-end or full-stack internships in the Netherlands. The easiest way to reach me is on LinkedIn — or drop me an email.</p>
         <div class="contact-actions">
-          <a class="btn btn-primary" href="https://www.linkedin.com/in/yuchang-huang-abba1a299/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/yuchang-huang-abba1a299/" target="_blank" rel="noopener">Connect on LinkedIn <span class="arrow">→</span></a>
           <a class="btn btn-ghost" href="mailto:yuchanghuang112@gmail.com">yuchanghuang112@gmail.com</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="container">
-      © 2026 YuChang Huang · Built with plain HTML &amp; CSS ·
-      <a href="https://github.com/YuChangHuang/YuChangHuang.github.io" style="color: var(--muted);">Source</a>
+    <div class="container footer-inner">
+      <span class="footer-mono">© 2026 YuChang Huang</span>
+      <span>
+        <a href="https://github.com/YuChangHuang" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.linkedin.com/in/yuchang-huang-abba1a299/" target="_blank" rel="noopener">LinkedIn</a> ·
+        <a href="https://www.figma.com/design/8ciwfvsGC96m4i0i1cxXqA/Figma-Portfolio?node-id=0-1" target="_blank" rel="noopener">Figma</a>
+      </span>
     </div>
   </footer>
 
